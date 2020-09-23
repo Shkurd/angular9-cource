@@ -1,0 +1,102 @@
+<h1>
+  Hello Angular World
+</h1>
+
+<p>{{title}}</p>
+<!-- <p><strong>{{number}}</strong></p>
+<p><strong>{{arr}}</strong></p> -->
+
+<!-- <img [src]="img" alt="img"> -->
+<hr>
+
+<input type="text" (input)="onInput($event)">
+<p>{{inputValue}}</p>
+<hr>
+  <button (click)="onClick()">Click me!</button>
+  
+<hr>
+
+<hr>
+<input type="text" [(ngModel)]="inputValue3">
+<p>{{inputValue3}}</p>
+<app-post></app-post>
+<app-post></app-post>
+
+<hr>
+
+<app-post4></app-post4>
+<br><br>
+
+<div [ngStyle]="{
+  width: '200px',
+  height: '200px',
+  background: backgroundToggle ? 'red' : 'green'
+}">
+
+</div>
+
+<button (click)="backgroundToggle = !backgroundToggle">Click me!</button>
+<button (click)="backgroundToggle = 111">Click me2!</button>
+<hr>
+<br><br><br>
+<p [ngClass]="{
+  'red': backgroundToggle,
+  'blue' : !backgroundToggle
+}">
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam laborum repudiandae mollitia molestiae ipsum quidem, dicta maxime dolorem sapiente sunt.
+</p>
+
+
+<p [ngClass]="{
+  'red': backgroundToggle,
+  'blue' : !backgroundToggle
+}">
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam laborum repudiandae mollitia molestiae ipsum quidem, dicta maxime dolorem sapiente sunt.
+</p>
+
+
+<p 
+  [class.red]="backgroundToggle"
+  [class.blue]="!backgroundToggle"
+>
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam laborum repudiandae mollitia molestiae ipsum quidem, dicta maxime dolorem sapiente sunt.
+</p>
+
+<br><br><br>
+<p *ngIf="backgroundToggle; else bluePPP" class="red">
+  red Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam laborum repudiandae mollitia molestiae ipsum quidem, dicta maxime dolorem sapiente sunt.
+</p>
+
+<ng-template #bluePPP>
+  <p class="blue">
+    blue Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam laborum repudiandae mollitia molestiae ipsum quidem, dicta maxime dolorem sapiente sunt.
+  </p>
+</ng-template>
+
+<br><br><br>
+<div [ngSwitch]="backgroundToggle">
+  <p *ngSwitchCase="true" class="red">
+    blue Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam laborum repudiandae mollitia molestiae ipsum quidem, dicta maxime dolorem sapiente sunt.
+  </p>
+  <p *ngSwitchCase="false" class="blue">
+    blue Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam laborum repudiandae mollitia molestiae ipsum quidem, dicta maxime dolorem sapiente sunt.
+  </p>
+  <p *ngSwitchDefault >
+    Lorem ipsum.
+  </p>
+
+</div>
+
+<br><br><br>
+
+<ul>
+  <li *ngFor="let elem of myArr; let idx = index">
+  {{idx + 1}} <strong> {{elem}} </strong>
+  </li>
+</ul>
+
+<ul>
+  <li *ngFor="let elem of myObj">
+  {{elem.title}} <strong> {{elem.text}} </strong>
+  </li>
+</ul>
