@@ -28,5 +28,3 @@ import { CommonModule } from '@angular/common';
 })
 export class AppModule { }
 
-
-//остановился на уроке https://www.vladilen.dev/products/angular-9-2020/categories/2315840/posts/7739221
