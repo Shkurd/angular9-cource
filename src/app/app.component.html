@@ -9,7 +9,8 @@
 
   <app-post 
     *ngFor="let elem of posts"
-    [post]=elem
+    [post]="elem"
+    (onRemove)="removePost($event)"
   >
     <div #info>
       <small *ngIf="elem.text.length > 10; else short"> Пост длинный  </small>

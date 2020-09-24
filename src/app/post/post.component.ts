@@ -1,4 +1,4 @@
-import { Component, ContentChild, ElementRef, Input, OnInit } from '@angular/core';
+import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, ContentChild, DoCheck, ElementRef, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges } from '@angular/core';
 import { Post } from '../app.component';
 
 @Component({
@@ -6,15 +6,52 @@ import { Post } from '../app.component';
   templateUrl: './post.component.html',
   styleUrls: ['./post.component.scss']
 })
-export class PostComponent implements OnInit {
+export class PostComponent implements OnInit, OnChanges, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy {
 
   @Input() post:Post // так мы через декоратор инпортируем внешние данные в компонент (в данном случае посты)
   @ContentChild('info', {static: true}) infoRef: ElementRef
+  @Output() onRemove =  new EventEmitter<number>()
+    constructor() {
+  }
 
-  constructor() { }
+
+
+  removePost(id: number) {
+    this.onRemove.emit(this.post.id)
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log('ngOnChanges ', changes)
+  }
 
   ngOnInit() {
-    console.log(this.infoRef.nativeElement)
+    console.log('ngOnInit')
+    // console.log(this.infoRef.nativeElement)
   }
+
+  ngDoCheck(): void {
+    console.log('ngDoCheck')
+  }
+
+  ngAfterContentInit(): void {
+    console.log('ngAfterContentInit')
+  }
+
+  ngAfterContentChecked(): void {
+    console.log('AfterContentChecked')
+  }
+
+  ngAfterViewInit(): void {
+    console.log('ngAfterViewInit')
+  }
+
+  ngAfterViewChecked(): void {
+    console.log('ngAfterViewChecked')
+  }
+
+  ngOnDestroy(): void {
+    console.log('ngOnDestroy')
+  }
+
 
 }
