@@ -1,5 +1,8 @@
 <div class="container">
   <h1>Angular Components</h1>
+  <p [appStyle]="'red'" fontWeight="bold" [dStyles]="{border: 'solid 1px blue', borderRadius: '5px'}">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, excepturi!</p>
+
+  <p [appStyle]="'blue'" fontWeight="bold" [dStyles]="{border: 'solid 3px red', borderRadius: '15px'}">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, excepturi!</p>
 
   <app-post-form
     (onAdd)="updatePosts($event)"
