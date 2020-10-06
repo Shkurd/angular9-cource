@@ -1,28 +1,70 @@
 <div class="container">
-  <h1>Angular Components</h1>
-  <p [appStyle]="'red'" fontWeight="bold" [dStyles]="{border: 'solid 1px blue', borderRadius: '5px'}">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, excepturi!</p>
 
-  <p [appStyle]="'blue'" fontWeight="bold" [dStyles]="{border: 'solid 3px red', borderRadius: '15px'}">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, excepturi!</p>
+  <h1>Angular Pipes</h1>
 
-  <app-post-form
-    (onAdd)="updatePosts($event)"
-  ></app-post-form>
+  <p>
+    {{ e | number:'1.1-5' }}
+  </p>
 
-  <hr />
+  <p>
+    {{ e | number:'3.1-2' }}
+  </p>
 
-  <app-post 
-    *ngFor="let elem of posts"
-    [post]="elem"
-    (onRemove)="removePost($event)"
-  >
-    <div #info>
-      <small *ngIf="elem.text.length > 10; else short"> Пост длинный  </small>
-      <ng-template #short>
-        <small>Пост короткий</small>
-      </ng-template>
-    </div>
-  </app-post>
+  <p>
+    {{ e | number:'1.0-0' }}
+  </p>
+
+  <p>
+    {{ str | uppercase | lowercase | titlecase }}
+  </p>
+  <p>
+    {{ str | titlecase | slice:1:5 }}
+  </p>
+  <p>
+    {{ str | titlecase | slice:1:-2 }}
+  </p>
+
+  <p>
+    {{ date }}
+  </p>
+  <p>
+    {{ date | date }}
+  </p>
+  <p>
+    {{ date | date: "fullDate" }}
+  </p>
+  <p>
+    {{ date | date: "longDate" }}
+  </p>
+  <p>
+    {{ date | date: "MMMM dd yyyy, HH:mm:ss" }}
+  </p>
+
+  <p>
+    {{ float }}
+  </p>
+  <p>
+    {{ float | currency }}
+  </p>
+  <p>
+    {{ float | percent:'2.0-0' }}
+  </p>
+
+  <p>
+    {{ obj }}
+  </p>
+  <pre>
+    {{ obj | json}}
+  </pre>
+
+  <p>
+    {{ 10 | exMarks }}
+  </p>
+  <p>
+    {{ 10 | exMarks:2 }}
+  </p>
+  <p>
+    {{ 10 | exMarks:3 }}
+  </p>
 
 </div>
-
-

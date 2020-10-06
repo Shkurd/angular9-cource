@@ -1,33 +1,28 @@
-import { Component, OnInit } from '@angular/core';
-
-export interface Post { // заготовка интерфейса поста т.е. шаблон.
-  title: string
-  text: string
-  id?: number
-}
+import {Component} from '@angular/core'
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
+export class AppComponent {
 
-export class AppComponent implements OnInit {
-  posts: Post[] = [
-    {title: 'Хочу выучить Angular компоненты', text: 'Я все еще учу компоненты...', id:1},
-    // {title: 'Следующий блок', text: 'Будет про директивы и еще про пайпы...', id:2}
-  ]
+  e: number = Math.E
 
-  ngOnInit(): void {
-    
-  }
+  str = 'hello world'
 
-  updatePosts(post: Post) {
-    this.posts.unshift(post)
-  }
+  date: Date = new Date()
 
-  removePost(id: number) {
-    console.log('removePost', id)
-    this.posts = this.posts.filter(post => post.id !== id)
+  float = 0.42
+
+  obj = {
+    a:1,
+    b: {
+      c:2,
+      d: {
+        e:3,
+        f:4
+      }
+    }
   }
 }
