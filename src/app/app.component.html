@@ -13,6 +13,12 @@
 
   <hr>
 
+  <p *ngIf="error; else todoBlock" class="error">
+    {{error}}
+  </p>
+
+  <ng-template #todoBlock>Ошибок нет</ng-template>
+
   <div *ngIf="!loading; else loadingBlock"> 
     <div *ngIf="todos.length; else noTodoBlock">
       <div class="card" *ngFor="let todo of todos">
@@ -20,7 +26,7 @@
           <span [class.completed]="todo.completed">{{todo.title | titlecase}}</span>
           <span>
             <button class="btn btn-danger" (click)="removeTodo(todo.id)">Удалить</button>
-            <button class="btn" [disabled]="todo.completed">Завершить</button>
+            <button class="btn" [disabled]="todo.completed" (click)="comleteTodo(todo.id)">Завершить</button>
           </span>
         </p>
       </div>
